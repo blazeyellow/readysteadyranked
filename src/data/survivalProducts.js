@@ -3,7 +3,7 @@ export const survivalProducts = [
     id: 'product-001',
     name: 'Garmin inReach Mini 2',
     brand: 'Garmin',
-    category: 'Navigation & Communication',
+    category: 'Outdoor Tools',
     rating: 4.8,
     reviewCount: 1295,
     price: '$399.99',
@@ -22,7 +22,7 @@ export const survivalProducts = [
     id: 'product-002',
     name: 'LifeStraw Peak Series Straw',
     brand: 'LifeStraw',
-    category: 'Water & Filtration',
+    category: 'Emergency Kits',
     rating: 4.7,
     reviewCount: 8721,
     price: '$29.95',
@@ -41,7 +41,7 @@ export const survivalProducts = [
     id: 'product-003',
     name: 'EcoFlow RIVER 2 Pro Portable Power Station',
     brand: 'EcoFlow',
-    category: 'Power & Lighting',
+    category: 'Solar & Power',
     rating: 4.6,
     reviewCount: 2150,
     price: '$649.00',
@@ -60,7 +60,7 @@ export const survivalProducts = [
     id: 'product-004',
     name: 'Uncharted Supply Co. Seventy2 Pro Survival System',
     brand: 'Uncharted Supply Co.',
-    category: 'Kits & Bundles',
+    category: 'Emergency Kits',
     rating: 4.9,
     reviewCount: 534,
     price: '$589.00',
@@ -79,7 +79,7 @@ export const survivalProducts = [
     id: 'product-005',
     name: 'Midland ER310 Emergency Crank Weather Radio',
     brand: 'Midland',
-    category: 'Communication & Alerts',
+    category: 'Solar & Power',
     rating: 4.5,
     reviewCount: 6420,
     price: '$69.99',
@@ -93,5 +93,43 @@ export const survivalProducts = [
     affiliateUrl: '#',
     updatedAt: '2024-05-26',
     badges: []
+  },
+  {
+    id: 'product-006',
+    name: 'Fenix PD36R PRO Rechargeable Flashlight',
+    brand: 'Fenix',
+    category: 'Flashlights',
+    rating: 4.9,
+    reviewCount: 4210,
+    price: '$119.95',
+    prime: true,
+    summary: '2,800-lumen tactical flashlight with USB-C fast charging and dual tail switches.',
+    highlights: [
+      'Maximum beam distance of 415 yards',
+      'Runs up to 42 hours on eco mode',
+      'IP68 rated for extreme weather and immersion'
+    ],
+    affiliateUrl: '#',
+    updatedAt: '2024-06-08',
+    badges: ['Staff Favorite']
+  },
+  {
+    id: 'product-007',
+    name: 'Leatherman Signal Multi-Tool',
+    brand: 'Leatherman',
+    category: 'Outdoor Tools',
+    rating: 4.7,
+    reviewCount: 3580,
+    price: '$129.95',
+    prime: true,
+    summary: 'Multi-tool built for survival scenarios with ferro rod, whistle, and 19 essentials.',
+    highlights: [
+      'Includes hammer, saw, combo knife, and carabiner',
+      '420HC stainless steel with DLC coating',
+      'Backed by Leatherman 25-year warranty'
+    ],
+    affiliateUrl: '#',
+    updatedAt: '2024-05-28',
+    badges: ['Trail Tested']
   }
 ];

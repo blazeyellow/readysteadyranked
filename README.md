@@ -22,6 +22,7 @@ Curated React front end showcasing the highest-rated survival, emergency, and pr
 - `src/api/productsApi.js` – Simulated API calls and future tracking placeholder.
 - `src/hooks/useProducts.js` – React hook that drives filtering/loading state.
 - `src/data/survivalProducts.js` – Mock catalog of Amazon survival gear.
+- `src/components/TopNav.jsx` – Sticky navigation for primary sections and gear subcategories.
 - `src/components` – Product grid, card, and supporting UI pieces.
 - `src/pages/Home.jsx` – Landing page composition with category filters.
 
