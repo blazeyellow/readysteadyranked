@@ -1,6 +1,6 @@
 # Ready Steady Ranked
 
-Affiliate marketing React front-end scaffold built with Vite and React 18. The API layer is stubbed so you can focus on UI and flow before the backend is available.
+Curated React front end showcasing the highest-rated survival, emergency, and preparedness gear on Amazon. The data layer is mocked so you can iterate on UX, filtering, and outbound tracking before wiring up a live catalog API.
 
 ## Getting started
 
@@ -19,10 +19,10 @@ Affiliate marketing React front-end scaffold built with Vite and React 18. The A
 
 ## Project structure
 
-- `src/api/affiliateApi.js` – Stubs for the future API endpoints.
-- `src/hooks/useOffers.js` – React hook that handles fetching and state.
-- `src/data/mockOffers.js` – Mocked offers that simulate API responses.
-- `src/components` – UI building blocks for offers.
-- `src/pages/Home.jsx` – Example page wiring the components together.
+- `src/api/productsApi.js` – Simulated API calls and future tracking placeholder.
+- `src/hooks/useProducts.js` – React hook that drives filtering/loading state.
+- `src/data/survivalProducts.js` – Mock catalog of Amazon survival gear.
+- `src/components` – Product grid, card, and supporting UI pieces.
+- `src/pages/Home.jsx` – Landing page composition with category filters.
 
-When the real API becomes available, replace the stubs in `src/api/affiliateApi.js` and adapt the `useOffers` hook to consume it.
+Swap the mocked API and data modules for real endpoints when the backend is ready, keeping the hook and presentation logic intact.

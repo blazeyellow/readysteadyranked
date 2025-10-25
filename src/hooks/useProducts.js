@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react';
-import { fetchOffers } from '../api/affiliateApi.js';
+import { fetchProducts } from '../api/productsApi.js';
 
-const prependAll = (categories) => {
-  const unique = Array.from(new Set(categories));
-  return ['all', ...unique];
-};
+const prependAll = (categories) => ['all', ...Array.from(new Set(categories))];
 
-const useOffers = (activeCategory = 'all') => {
-  const [offers, setOffers] = useState([]);
+const useProducts = (activeCategory = 'all') => {
+  const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState(['all']);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,23 +12,23 @@ const useOffers = (activeCategory = 'all') => {
   useEffect(() => {
     let ignore = false;
 
-    const loadOffers = async () => {
+    const loadProducts = async () => {
       setIsLoading(true);
       setError(null);
 
       try {
-        const { offers: nextOffers, categories: nextCategories } = await fetchOffers({
+        const { products: nextProducts, categories: nextCategories } = await fetchProducts({
           category: activeCategory
         });
 
         if (!ignore) {
-          setOffers(nextOffers);
+          setProducts(nextProducts);
           setCategories(prependAll(nextCategories));
         }
       } catch (err) {
         if (!ignore) {
-          setError(err instanceof Error ? err.message : 'Unknown error fetching offers');
-          setOffers([]);
+          setError(err instanceof Error ? err.message : 'Unknown error fetching products');
+          setProducts([]);
           setCategories(['all']);
         }
       } finally {
@@ -41,14 +38,14 @@ const useOffers = (activeCategory = 'all') => {
       }
     };
 
-    loadOffers();
+    loadProducts();
 
     return () => {
       ignore = true;
     };
   }, [activeCategory]);
 
-  return { offers, categories, isLoading, error };
+  return { products, categories, isLoading, error };
 };
 
-export default useOffers;
+export default useProducts;
