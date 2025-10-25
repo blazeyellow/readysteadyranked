@@ -1,9 +1,29 @@
 import { useMemo } from 'react';
+import HeroBanner from '../components/HeroBanner.jsx';
+import TopRankingsCarousel from '../components/TopRankingsCarousel.jsx';
+import QuickRankMethodology from '../components/QuickRankMethodology.jsx';
+import FeaturedReview from '../components/FeaturedReview.jsx';
 import ProductGrid from '../components/ProductGrid.jsx';
+import LatestArticles from '../components/LatestArticles.jsx';
+import NewsletterSignup from '../components/NewsletterSignup.jsx';
 import useProducts from '../hooks/useProducts.js';
+import {
+  topRankingCollections,
+  rankMethodology,
+  featuredReview,
+  latestArticles
+} from '../data/homepageContent.js';
 
 const Home = ({ activeCategory, onSelectCategory }) => {
   const { products, categories, isLoading, error } = useProducts(activeCategory);
+
+  const handleCategoryChange = (value) => {
+    onSelectCategory(value);
+    const anchor = document.getElementById('gear-rankings');
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const pills = useMemo(
     () =>
@@ -15,66 +35,79 @@ const Home = ({ activeCategory, onSelectCategory }) => {
   );
 
   return (
-    <main id="home" className="page-container">
-      <header id="gear-rankings" className="page-header">
-        <h1>Ready Steady Ranked</h1>
-        <p>
-          Field-tested survival, emergency, and preparedness gear with standout Amazon reviews.
-          Skip the scroll fatigue and get straight to the equipment the community trusts when it
-          matters most.
-        </p>
-      </header>
+    <main id="home">
+      <div className="page-container">
+        <HeroBanner onPrimaryAction={() => handleCategoryChange('all')} />
+        <TopRankingsCarousel items={topRankingCollections} onSelectCategory={handleCategoryChange} />
+        <QuickRankMethodology criteria={rankMethodology} />
 
-      <nav className="filter-bar" aria-label="Gear categories">
-        {pills.map((pill) => (
-          <button
-            key={pill.value}
-            type="button"
-            className={`pill ${activeCategory === pill.value ? 'active' : ''}`}
-            onClick={() => onSelectCategory(pill.value)}
-          >
-            {pill.label}
-          </button>
-        ))}
-      </nav>
+        <section id="gear-rankings" className="content-section gear-section">
+          <header className="page-header">
+            <h1>Ready Steady Ranked</h1>
+            <p>
+              Field-tested survival, emergency, and preparedness gear with standout Amazon reviews.
+              Skip the scroll fatigue and get straight to the equipment the community trusts when it
+              matters most.
+            </p>
+          </header>
 
-      {isLoading ? <p>Gathering top-rated gear...</p> : null}
-      {error ? <p role="alert">We hit a snag: {error}</p> : null}
-      {!isLoading && !error ? <ProductGrid products={products} /> : null}
+          <nav className="filter-bar" aria-label="Gear categories">
+            {pills.map((pill) => (
+              <button
+                key={pill.value}
+                type="button"
+                className={`pill ${activeCategory === pill.value ? 'active' : ''}`}
+                onClick={() => handleCategoryChange(pill.value)}
+              >
+                {pill.label}
+              </button>
+            ))}
+          </nav>
 
-      <section id="buyers-guides" className="content-section">
-        <h2>Buyers' Guides</h2>
-        <p>
-          Deep-dive walkthroughs on the best survival gear stacks, from building blackout kits to
-          assembling self-reliant bug out bags. Coming soon with expert-tested checklists.
-        </p>
-      </section>
+          {isLoading ? <p>Gathering top-rated gear...</p> : null}
+          {error ? <p role="alert">We hit a snag: {error}</p> : null}
+          {!isLoading && !error ? <ProductGrid products={products} /> : null}
+        </section>
 
-      <section id="field-tests" className="content-section">
-        <h2>Field Tests</h2>
-        <p>
-          Trail, range, and storm-scenario reviews where we push gear past spec sheets to uncover
-          real-world strengths and failures. Expect video highlights and data tables in future
-          releases.
-        </p>
-      </section>
+        <FeaturedReview review={featuredReview} />
 
-      <section id="blog-news" className="content-section">
-        <h2>Blog / News</h2>
-        <p>
-          Stay current on preparedness trends, supply chain alerts, and Amazon deal drops. We will
-          publish rotating briefs and actionable tips to keep your kit mission-ready.
-        </p>
-      </section>
+        <section id="buyers-guides" className="content-section">
+          <h2>Buyers' Guides</h2>
+          <p>
+            Deep-dive walkthroughs on the best survival gear stacks, from building blackout kits to
+            assembling self-reliant bug out bags. Coming soon with expert-tested checklists.
+          </p>
+        </section>
 
-      <section id="about-contact" className="content-section">
-        <h2>About / Contact</h2>
-        <p>
-          Ready Steady Ranked is built by preppers for preppers. Have intel, gear suggestions, or
-          want to collaborate? Email contact@readysteadyranked.com and we will get back within 2
-          business days.
-        </p>
-      </section>
+        <section id="field-tests" className="content-section">
+          <h2>Field Tests</h2>
+          <p>
+            Trail, range, and storm-scenario reviews where we push gear past spec sheets to uncover
+            real-world strengths and failures. Expect video highlights and data tables in future
+            releases.
+          </p>
+        </section>
+
+        <LatestArticles articles={latestArticles} />
+        <NewsletterSignup />
+
+        <section id="about-contact" className="content-section">
+          <h2>About / Contact</h2>
+          <p>
+            Ready Steady Ranked is built by preppers for preppers. Have intel, gear suggestions, or
+            want to collaborate? Email contact@readysteadyranked.com and we will get back within 2
+            business days.
+          </p>
+        </section>
+
+        <section id="privacy" className="content-section">
+          <h2>Privacy</h2>
+          <p>
+            We log only the analytics needed to understand which gear roundups are most helpful.
+            Subscribe with confidence - you can unsubscribe anytime with one click.
+          </p>
+        </section>
+      </div>
     </main>
   );
 };

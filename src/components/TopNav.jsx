@@ -45,7 +45,13 @@ const TopNav = ({ activeCategory, onCategorySelect }) => (
                         className={`sub-nav__btn ${
                           activeCategory === category.value ? 'is-active' : ''
                         }`}
-                        onClick={() => onCategorySelect(category.value)}
+                        onClick={() => {
+                          onCategorySelect(category.value);
+                          const anchor = document.getElementById('gear-rankings');
+                          if (anchor) {
+                            anchor.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }}
                         aria-pressed={activeCategory === category.value}
                       >
                         {category.label}
