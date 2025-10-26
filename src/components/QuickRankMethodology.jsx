@@ -1,6 +1,7 @@
 const QuickRankMethodology = ({ criteria }) => (
   <section className="methodology">
     <div className="section-heading">
+      <span className="card-kicker">Methodology</span>
       <h2>How We Rank</h2>
       <p>Every score blends lab stress-tests with real-world community feedback.</p>
     </div>

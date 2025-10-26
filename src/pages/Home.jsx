@@ -43,6 +43,7 @@ const Home = ({ activeCategory, onSelectCategory }) => {
 
         <section id="gear-rankings" className="content-section gear-section">
           <header className="page-header">
+            <span className="card-kicker">Gear Rankings</span>
             <h1>Ready Steady Ranked</h1>
             <p>
               Field-tested survival, emergency, and preparedness gear with standout Amazon reviews.
@@ -72,16 +73,18 @@ const Home = ({ activeCategory, onSelectCategory }) => {
         <FeaturedReview review={featuredReview} />
 
         <section id="buyers-guides" className="content-section">
+          <span className="card-kicker section-kicker">Buyers' Guides</span>
           <h2>Buyers' Guides</h2>
-          <p>
+          <p className="section-lede">
             Deep-dive walkthroughs on the best survival gear stacks, from building blackout kits to
             assembling self-reliant bug out bags. Coming soon with expert-tested checklists.
           </p>
         </section>
 
         <section id="field-tests" className="content-section">
+          <span className="card-kicker section-kicker">Field Tests</span>
           <h2>Field Tests</h2>
-          <p>
+          <p className="section-lede">
             Trail, range, and storm-scenario reviews where we push gear past spec sheets to uncover
             real-world strengths and failures. Expect video highlights and data tables in future
             releases.
@@ -92,8 +95,9 @@ const Home = ({ activeCategory, onSelectCategory }) => {
         <NewsletterSignup />
 
         <section id="about-contact" className="content-section">
+          <span className="card-kicker section-kicker">About</span>
           <h2>About / Contact</h2>
-          <p>
+          <p className="section-lede">
             Ready Steady Ranked is built by preppers for preppers. Have intel, gear suggestions, or
             want to collaborate? Email contact@readysteadyranked.com and we will get back within 2
             business days.
@@ -101,8 +105,9 @@ const Home = ({ activeCategory, onSelectCategory }) => {
         </section>
 
         <section id="privacy" className="content-section">
+          <span className="card-kicker section-kicker">Policy</span>
           <h2>Privacy</h2>
-          <p>
+          <p className="section-lede">
             We log only the analytics needed to understand which gear roundups are most helpful.
             Subscribe with confidence - you can unsubscribe anytime with one click.
           </p>

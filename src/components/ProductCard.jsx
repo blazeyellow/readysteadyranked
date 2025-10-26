@@ -3,6 +3,19 @@ import { trackOutboundClick } from '../api/productsApi.js';
 const formatReviewCount = (count) =>
   typeof count === 'number' ? count.toLocaleString('en-US') : count;
 
+const formatDate = (value) => {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric'
+  });
+};
+
 const ProductCard = ({ product }) => {
   const handleClick = async () => {
     await trackOutboundClick();
@@ -10,9 +23,10 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <article className="card" data-product-id={product.id}>
+    <article className="card product-card" data-product-id={product.id}>
       <header className="card-header">
         <div className="card-meta">
+          <span className="card-kicker">{product.category}</span>
           <h2>{product.name}</h2>
           <p className="brand">{product.brand}</p>
         </div>
@@ -48,7 +62,7 @@ const ProductCard = ({ product }) => {
       </div>
 
       <footer className="card-footer">
-        <time dateTime={product.updatedAt}>Updated {product.updatedAt}</time>
+        <time dateTime={product.updatedAt}>Updated {formatDate(product.updatedAt)}</time>
         <button type="button" className="cta" onClick={handleClick}>
           View on Amazon
         </button>

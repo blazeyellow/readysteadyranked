@@ -1,7 +1,10 @@
 const NewsletterSignup = () => (
   <section id="newsletter" className="newsletter content-section">
+    <span className="card-kicker section-kicker">Briefings</span>
     <h2>Stay Ready</h2>
-    <p>Get monthly gear rankings, vetted deals, and field test recaps straight to your inbox.</p>
+    <p className="section-lede">
+      Get monthly gear rankings, vetted deals, and field test recaps straight to your inbox.
+    </p>
     <form
       className="newsletter-form"
       onSubmit={(event) => {

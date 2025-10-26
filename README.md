@@ -2,6 +2,17 @@
 
 Curated React front end showcasing the highest-rated survival, emergency, and preparedness gear on Amazon. The data layer is mocked so you can iterate on UX, filtering, and outbound tracking before wiring up a live catalog API.
 
+The interface leans into a magazine-inspired presentation with editorial typography, section kickers, featured reviews, and newsletter briefings to keep the experience immersive while you prototype.
+
+### Brand palette
+
+- Primary accents & CTAs: `#F26B1D`
+- Headlines, navbar, footer: `#2B2B2B`
+- Backgrounds: `#E7E7E7` (body), `#FFFFFF` (cards/sections)
+- Links & icons: `#3C6E91` with `#FFC145` hover state
+- Badges & rating highlights: `#FFC145`
+- Light text on dark surfaces: `#FAFAFA`
+
 ## Getting started
 
 1. Install dependencies:

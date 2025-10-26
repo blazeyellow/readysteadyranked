@@ -1,6 +1,7 @@
 const FeaturedReview = ({ review }) => (
   <section id="featured-review" className="featured-review">
     <div className="section-heading">
+      <span className="card-kicker">Spotlight</span>
       <h2>Featured Review</h2>
       <p>Hands-on testing with affiliate transparency.</p>
     </div>
@@ -12,6 +13,10 @@ const FeaturedReview = ({ review }) => (
         </span>
       </header>
       <p>{review.excerpt}</p>
+      <div className="featured-meta">
+        <span>{review.author}</span>
+        <span>{review.publishedAt}</span>
+      </div>
       <div className="featured-links">
         <a className="text-link" href={review.ctaHref}>
           {review.ctaLabel}
